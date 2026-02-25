@@ -70,11 +70,16 @@ jobs:
 
       - name: Lime Setup Android
         run: |
-          printf "%s\n%s\n%s\n" \
-          "$ANDROID_SDK_ROOT" \
-          "$ANDROID_NDK_ROOT" \
-          "$JAVA_HOME" \
-          | haxelib run lime setup android
+         printf "%s\n%s\n%s\n" \
+         "$ANDROID_SDK_ROOT" \
+         "$ANDROID_NDK_ROOT" \
+         "$JAVA_HOME" \
+         | haxelib run lime setup android
+
+      - name: set hxcpp
+        run: |
+         haxelib set hxcpp git
+         haxelib run lime rebuild hxcpp
 
       - name: Show Installed Libraries
         run: haxelib list
