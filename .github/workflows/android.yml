@@ -66,6 +66,7 @@ jobs:
          haxelib set openfl git
          haxelib install hxvlc 1.9.3
          haxelib set hxvlc 1.9.3
+         
 
       - name: Lime Setup Android
         run: |
@@ -85,9 +86,9 @@ jobs:
 
       - name: Build Android
         run: |
-          haxelib run lime build android -final -clean -DHXCPP_ARM64 -DHXCPP_VISIT_ALLOCS -DHXCPP_CHECK_POINTER -DHXCPP_STACK_LINE -DHX_SMART_STRINGS -DHXCPP_CATCH_SEGV -DHXCPP_API_LEVEL=430 -Wno-invalid-offsetof -Wno-return-type-c-linkage -Wno-parentheses
+          haxelib run lime build android -final -clean
 
-      - name: Find APK
+      - name: Find APKS 
         run: find . -name "*.apk"
 
       - name: Upload APK
