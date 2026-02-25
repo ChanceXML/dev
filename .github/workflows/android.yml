@@ -65,7 +65,7 @@ jobs:
          haxelib set hxvlc 1.9.3
          haxelib set lime git
          haxelib install openfl 9.2.2
-         haxelib set openfl git
+         haxelib set openfl 9.2.2
 
       - name: Lime Setup Android
         run: |
@@ -85,7 +85,7 @@ jobs:
 
       - name: Build Android
         run: |
-          haxelib set openfl git
+          haxelib set openfl 9.2.2
           haxelib run lime build android -final -clean
 
       - name: Find APKS 
