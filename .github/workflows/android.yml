@@ -62,6 +62,7 @@ jobs:
       - name: Lock OpenFL + Lime Versions
         run: |
          haxelib set lime git
+         haxelib install openfl 9.2.2
          haxelib set openfl git
          haxelib install hxvlc 1.9.3
          haxelib set hxvlc 1.9.3
