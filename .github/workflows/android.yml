@@ -60,12 +60,16 @@ jobs:
 
       - name: Lock OpenFL + Lime Versions
         run: |
-          haxelib install lime 8.1.2
-          haxelib install openfl 9.3.3
-          haxelib set lime 8.1.2
-          haxelib set openfl 9.3.3
-          haxelib install hxvlc 1.9.3
-          haxelib set hxvlc 1.9.3
+         haxelib git hxcpp https://github.com
+         cd $(haxelib libpath hxcpp)tools/hxcpp && haxe compile.hxml
+         cd ../build && haxe compile.hxml
+         cd $GITHUB_WORKSPACE
+         haxelib install lime 8.1.2
+         haxelib install openfl 9.3.3
+         haxelib set lime 8.1.2
+         haxelib set openfl 9.3.3
+         haxelib install hxvlc 1.9.3
+         haxelib set hxvlc 1.9.3
 
       - name: Lime Setup Android
         run: |
