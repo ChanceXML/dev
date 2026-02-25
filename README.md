@@ -1,6 +1,6 @@
-# Friday Night Funkin' - Codename Engine (ANDROID PORT)
-
 [![Android Build](https://github.com/ChanceXML/dev/actions/workflows/android.yml/badge.svg)](https://github.com/ChanceXML/dev/actions/workflows/android.yml)
+
+# Friday Night Funkin' - Codename Engine (ANDROID PORT)
 
 ## PLEASE NOTE - THIS IS STILL IN A BETA STATE
 ### Mods created with beta versions of Codename may not be compatible with the release version
