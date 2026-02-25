@@ -85,6 +85,7 @@ jobs:
 
       - name: Build Android
         run: |
+          haxelib set openfl git
           haxelib run lime build android -final -clean
 
       - name: Find APKS 
