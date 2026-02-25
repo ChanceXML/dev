@@ -5,7 +5,7 @@
     <print pretty="true">Installing stable Codename mobile setup...</print>
 
     <lib name="lime" version="8.1.2" />
-    <lib name="openfl" version="9.3.3" />
+    <lib name="openfl" version="9.2.2" />
     <git name="hxcpp" url="https://github.com/CodenameCrew/cne-hxcpp" />
 
     <git name="flixel" url="https://github.com/CodenameCrew/cne-flixel" />
