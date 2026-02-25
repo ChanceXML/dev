@@ -84,7 +84,7 @@ jobs:
 
       - name: Build Android
         run: |
-          haxelib run lime build android -final
+          haxelib run lime build android -final -clean
 
       - name: Find APK
         run: find . -name "*.apk"
