@@ -84,7 +84,7 @@ jobs:
 
       - name: Build Android
         run: |
-          haxelib run lime build android -final -clean
+          haxelib run lime build android -final -clean -DHXCPP_CLANG_NO_OVERRIDE_WARNING
 
       - name: Find APK
         run: find . -name "*.apk"
