@@ -2,7 +2,7 @@
 <libraries checkVersion="update">
 
   <if cond="all">
-    <print pretty="true">Installing stable Codename mobile setup...</print>
+    <print pretty="true">Installing Codename setup...</print>
 
     <lib name="lime" version="8.1.2" />
     <lib name="openfl" version="9.2.2" />
