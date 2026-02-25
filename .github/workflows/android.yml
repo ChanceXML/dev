@@ -67,11 +67,6 @@ jobs:
           haxelib install hxvlc 1.9.3
           haxelib set hxvlc 1.9.3
 
-      - name: Force Clean hxcpp
-        run: |
-          haxelib set hxcpp git
-          haxelib remove hxcpp 4.3.2
-
       - name: Lime Setup Android
         run: |
           printf "%s\n%s\n%s\n" \
