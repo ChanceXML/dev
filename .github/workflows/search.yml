@@ -1,0 +1,16 @@
+name: Search For Hxcpp
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Search for local hxcpp
+        run: |
+          find . -type d -name "hxcpp"

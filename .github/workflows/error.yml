@@ -1,0 +1,57 @@
+name: check errors
+
+on:
+  workflow_dispatch:
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Install Haxe 4.2.5
+        run: |
+          wget https://github.com/HaxeFoundation/haxe/releases/download/4.2.5/haxe-4.2.5-linux64.tar.gz
+          tar -xzf haxe-4.2.5-linux64.tar.gz
+          mv haxe_* haxe
+          sudo mv haxe /usr/local/
+          echo "/usr/local/haxe" >> $GITHUB_PATH
+
+      - name: Install Neko
+        run: |
+         sudo apt-get update
+         sudo apt-get install -y neko
+          
+      - name: Run Codename Setup
+        run: |
+          haxe -cp commandline -D analyzer-optimize --run Main setup -s --no-vscheck
+
+      - name: Lock OpenFL + Lime Versions
+        run: |
+          haxelib install lime 8.1.2
+          haxelib install openfl 9.3.3
+          haxelib set lime 8.1.2
+          haxelib set openfl 9.3.3
+
+      - name: Force Clean hxcpp
+        run: |
+         haxelib set hxcpp git
+         haxelib remove hxcpp 4.3.2
+
+      - name: Scan Source Files for Errors
+        run: |
+          echo "Scanning all Haxe source files for errors..."
+          errors=0
+          find source -name '*.hx' | while read file; do
+            echo "Checking $file"
+            # Run Haxe but don't exit on error
+            haxe -main DummyMain -js /dev/null -cp source -D analyzer-optimize -lib flixel -lib openfl -lib lime || errors=$((errors+1))
+          done
+          echo "Scanning complete. Total errors: $errors"
+          # Optionally fail the step if there were errors
+          if [ "$errors" -gt 0 ]; then
+            echo "Some files had errors."
+            exit 1
+          fi
