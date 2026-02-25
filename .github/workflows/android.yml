@@ -39,6 +39,7 @@ jobs:
       - name: Run Codename Setup
         run: |
           haxe -cp commandline -D analyzer-optimize --run Main setup -s --no-vscheck
+          haxelib run lime rebuild hxcpp
 
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
@@ -60,10 +61,6 @@ jobs:
 
       - name: Lock OpenFL + Lime Versions
         run: |
-         haxelib git hxcpp https://github.com
-         cd $(haxelib libpath hxcpp)tools/hxcpp && haxe compile.hxml
-         cd ../build && haxe compile.hxml
-         cd $GITHUB_WORKSPACE
          haxelib install lime 8.1.2
          haxelib install openfl 9.3.3
          haxelib set lime 8.1.2
