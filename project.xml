@@ -143,21 +143,4 @@
   <haxeflag name="--macro" value="funkin.backend.system.macros.Macros.initMacros()"/>
   <setenv name="HAXEPATH" value="./"/>
   <haxedef name="HXCPP_M32" if="32bit"/>
-
-<section if="android">
-    <compilerflag value="-Wno-inconsistent-missing-override" />
-    <compilerflag value="-Wno-parentheses" />
-    <compilerflag value="-Wno-invalid-offsetof" />
-    <compilerflag value="-Wno-return-type-c-linkage" />
-    
-    <compilerflag value="-fvisibility=hidden" />
-    <compilerflag value="-ffunction-sections" />
-    <compilerflag value="-fstack-protector" />
-</section>
-	
-<haxedef name="HXCPP_CHECK_POINTER" />
-<haxedef name="HXCPP_STACK_LINE" />
-<haxedef name="HX_SMART_STRINGS" />
-<haxedef name="HXCPP_CATCH_SEGV" />
-	
 </project>
