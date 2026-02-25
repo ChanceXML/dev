@@ -84,7 +84,7 @@ jobs:
 
       - name: Build Android
         run: |
-          haxelib run lime build android -final -clean -DHXCPP_ARM64 -DHXCPP_VISIT_ALLOCS(haxe) -DHXCPP_CHECK_POINTER(haxe) -DHXCPP_STACK_LINE(haxe) -DHX_SMART_STRINGS(haxe) -DHXCPP_CATCH_SEGV(haxe) -DHXCPP_API_LEVEL=430(haxe) -Wno-invalid-offsetof -Wno-return-type-c-linkage -Wno-parentheses
+          haxelib run lime build android -final -clean -DHXCPP_ARM64 -DHXCPP_VISIT_ALLOCS -DHXCPP_CHECK_POINTER -DHXCPP_STACK_LINE -DHX_SMART_STRINGS -DHXCPP_CATCH_SEGV -DHXCPP_API_LEVEL=430 -Wno-invalid-offsetof -Wno-return-type-c-linkage -Wno-parentheses
 
       - name: Find APK
         run: find . -name "*.apk"
